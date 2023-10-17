@@ -20,13 +20,13 @@ def test_New_User_Sign_up(page: Page):
     At_SignupPage.Name_input.input_value()
 
     random_email = At_SignupPage.generate_random_email()
-    At_SignupPage.Email_input.type(random_email)
+    At_SignupPage.Email_input.type(random_email, delay=200)
 
-    At_SignupPage.Company_input.type("Isar_company")
+    At_SignupPage.Company_input.type("Isar_company", delay=200)
 
-    At_SignupPage.Password_input.type("Test@123")
+    At_SignupPage.Password_input.type("Test@123",delay=200)
 
-    At_SignupPage.Confirm_password_input.type("Test@123")
+    At_SignupPage.Confirm_password_input.type("Test@123", delay=200)
 
     At_SignupPage.Term_check_box.set_checked(True)
 
@@ -36,6 +36,7 @@ def test_New_User_Sign_up(page: Page):
     page.screenshot(path="screenshot.png", full_page=True)
     
     At_SignupPage.Logo.wait_for_selector(timeout=60000)
+    
     expect(At_SignupPage.Logo).to_be_visible()
     
 
